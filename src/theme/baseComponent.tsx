@@ -11,7 +11,7 @@ const StyledBaseComponent = styled.div<StyledBaseComponent>`
   flex-direction: column;
   align-content: flex-start;
   flex-shrink: 0;
-  ${({ styleSheet }) => parseStyleSheet(styleSheet)}
+  ${({ styleSheet }) => parseStyleSheet(styleSheet ?? {})}
 `;
 
 export const BaseComponent = (props) => {
