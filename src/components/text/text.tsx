@@ -6,15 +6,15 @@ import React from 'react';
 
 interface TextProps {
   variant?: ThemeTypographyVariants;
-  tag?: 'p' | 'li' | 'h1' | 'h2' | 'h2';
+  tag?: 'p' | 'li' | 'h1' | 'h2' | 'h2' | string;
   children?: React.ReactNode;
   styleSheet?: StyleSheet;
 }
-export default function Text({
+const Text = React.forwardRef(({
   styleSheet, 
   variant,
   ...props
-}: TextProps) {
+}: TextProps, ref) => {
   const theme = useTheme();
   const textVariant = theme.typography.variants[variant];
 
@@ -25,10 +25,13 @@ export default function Text({
         ...textVariant,
         ...styleSheet,
       }}
+      ref={ref}
       {...props}
     />
   )
-}
+})
+
+export default Text
 
 Text.defaultProps = {
   tag: 'p',
