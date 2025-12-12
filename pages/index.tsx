@@ -1,4 +1,4 @@
-export { default } from '@src/screens/homeScreen/homeScreen'
+export { default } from '@src/screens/baseExamples'
 
 // import Box from "@src/components/box/box";
 // import theme from "@src/theme/theme";

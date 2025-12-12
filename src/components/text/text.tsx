@@ -6,7 +6,7 @@ import React from 'react';
 
 interface TextProps {
   variant?: ThemeTypographyVariants;
-  tag?: 'p' | 'li' | 'h1' | 'h2' | 'h2' | string;
+  tag?: 'p' | 'li' | 'h1' | 'h2' | 'h3' | string;
   children?: React.ReactNode;
   styleSheet?: StyleSheet;
   ref: any;

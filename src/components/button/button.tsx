@@ -13,8 +13,8 @@ interface ButtonProps extends ButtonBaseProps {
 export default function Button({
   styleSheet,
   children,
-  fullWidth = false,
-  colorVariant = 'primary',
+  fullWidth = true,
+  colorVariant = 'neutral',
   variant = 'contained',
   size = 'md',
 }: ButtonProps) {
