@@ -9,8 +9,10 @@ interface TextProps {
   tag?: 'p' | 'li' | 'h1' | 'h2' | 'h2' | string;
   children?: React.ReactNode;
   styleSheet?: StyleSheet;
+  ref: any;
 }
 const Text = React.forwardRef(({
+  tag,
   styleSheet, 
   variant,
   ...props
@@ -20,6 +22,7 @@ const Text = React.forwardRef(({
 
   return (
     <BaseComponent
+      as={tag}
       styleSheet={{
         fontFamily: theme.typography.fontFamily,
         ...textVariant,
@@ -31,9 +34,4 @@ const Text = React.forwardRef(({
   )
 })
 
-export default Text
-
-Text.defaultProps = {
-  tag: 'p',
-  variant: 'body2'
-};
+export default Text;

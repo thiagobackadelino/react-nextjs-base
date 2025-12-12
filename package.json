@@ -20,6 +20,7 @@
     "next": "^16.0.7",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
+    "react-use-ripple": "^1.5.2",
     "styled-components": "^6.1.19",
     "typescript": "^5.9.3"
   }

@@ -12,7 +12,7 @@ const StyledBaseComponent = styled.div<StyledBaseComponent>`
   flex-direction: column;
   align-content: flex-start;
   flex-shrink: 0;
-  ${({ styleSheet }) => parseStyleSheet(styleSheet ?? {})}
+  ${({ styleSheet }) => parseStyleSheet(styleSheet ?? {})}}
 `;
 
 interface BaseComponentProps {
@@ -20,11 +20,9 @@ interface BaseComponentProps {
   [key: string]: any;
 }; 
 export const BaseComponent = React.forwardRef<unknown, BaseComponentProps>((props, ref) => {
+  const { styleSheet = {}, ...rest } = props; 
+  
   return (
-    <StyledBaseComponent ref={ref} {...props} />
+    <StyledBaseComponent ref={ref} styleSheet={styleSheet} {...rest} />
   )
 });
-
-BaseComponent.defaultProps = {
-  styleSheet: {},
-};

@@ -15,7 +15,7 @@ interface IconProps {
   styleSheet?: StyleSheet;
   size?: keyof typeof iconSizes;
 }
-export default function Icon({ size, name, ...props }: IconProps) {
+export default function Icon({ size = 'md', name = 'default_icon', ...props }: IconProps) {
   const CurrentIcon = icons[name];
   if(!CurrentIcon) return <>"${name}" is not a valid <Icon /></>;
   return (
@@ -34,9 +34,4 @@ export default function Icon({ size, name, ...props }: IconProps) {
       <CurrentIcon />
     </BaseComponent>
   )
-}
-
-Icon.defaultProps = {
-  name: 'default_icon',
-  size: 'md',
 }

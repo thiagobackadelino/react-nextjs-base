@@ -5,7 +5,6 @@ import { StyleSheet } from "@src/theme/styleSheet";
 import { ThemeTypographyVariants } from "@src/theme/theme";
 import { useTheme } from "@src/theme/themeProvider";
 
-
 interface LinkProps {
   href: string;
   children: React.ReactNode;
@@ -18,11 +17,12 @@ interface LinkProps {
 const Link = React.forwardRef(({
   href,
   children,
-  colorVariant,
+ 
+  colorVariant = 'primary', 
   styleSheet,
-  colorVariantEnabled,
+  colorVariantEnabled = true,
   ...props
-}:LinkProps, ref) => {
+}: LinkProps, ref) => {
   const theme = useTheme();
   const isIExternalLink = href.startsWith('http');
 
@@ -43,21 +43,21 @@ const Link = React.forwardRef(({
     href,
     styleSheet: {
       textDecoration: 'none',
-      ...colorVariantEnabled && {
+      ...(colorVariantEnabled && {
         color: currentColorSet.color,
-      },
+      }),
       ...styleSheet,
       hover: {
         ...styleSheet?.hover,
-        ...colorVariantEnabled && {
-          color: currentColorSet.focus.color,
-        }
+        ...(colorVariantEnabled && {
+          color: currentColorSet.hover.color,
+        })
       },
       focus: {
         ...styleSheet?.focus,
-        ...colorVariantEnabled && {
+        ...(colorVariantEnabled && {
           color: currentColorSet.focus.color,
-        }
+        })
       },
     },
     ...props
@@ -78,10 +78,5 @@ const Link = React.forwardRef(({
     </NextLink>
   )
 });
-
-Link.defaultProps = {
-  colorVariant: 'primary',
-  colorVariantEnabled: true,
-};
 
 export default Link;
